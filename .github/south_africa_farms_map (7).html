@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c7bcb3dfb10a4f1d031f2fe4fe53b92d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 50px; left: 50px; width: 120px; height: 90px; 
+    border:2px solid grey; z-index:9999; font-size:14px; background-color:white;
+    ">&nbsp; <b>Farm Types</b> <br>
+    &nbsp; <i class="fa fa-map-marker fa-2x" style="color:green"></i> Community<br>
+    &nbsp; <i class="fa fa-map-marker fa-2x" style="color:blue"></i> Commercial
+</div>
+    
+            <div class="folium-map" id="map_c7bcb3dfb10a4f1d031f2fe4fe53b92d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c7bcb3dfb10a4f1d031f2fe4fe53b92d = L.map(
+                "map_c7bcb3dfb10a4f1d031f2fe4fe53b92d",
+                {
+                    center: [-28.4792, 24.6727],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ab0e4235c8d42c899fad9ecb5853c35a = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c7bcb3dfb10a4f1d031f2fe4fe53b92d);
+        
+    
+            var marker_cluster_9bba3485542ce9acee9bea3d262d3e82 = L.markerClusterGroup(
+                {}
+            );
+            map_c7bcb3dfb10a4f1d031f2fe4fe53b92d.addLayer(marker_cluster_9bba3485542ce9acee9bea3d262d3e82);
+        
+    
+            var marker_45ae1820f61ccba1277555f11d99bfbf = L.marker(
+                [-26.5707, 27.9986],
+                {}
+            ).addTo(marker_cluster_9bba3485542ce9acee9bea3d262d3e82);
+        
+    
+            var icon_5c2cd57a40adb8cfdada4aa245626fb6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_45ae1820f61ccba1277555f11d99bfbf.setIcon(icon_5c2cd57a40adb8cfdada4aa245626fb6);
+        
+    
+        var popup_afa1504d3eb0f8d9fbbd007dfdc28056 = L.popup({"maxWidth": 300});
+
+        
+            var html_39a2f876b11e4b57a8725e115b73cb27 = $(`<div id="html_39a2f876b11e4b57a8725e115b73cb27" style="width: 100.0%; height: 100.0%;">     <b>Vaal Community Farm</b><br>     Type: Community<br>     Size: 40 ha<br>     Coordinates: (-26.5707, 27.9986)     </div>`)[0];
+            popup_afa1504d3eb0f8d9fbbd007dfdc28056.setContent(html_39a2f876b11e4b57a8725e115b73cb27);
+        
+
+        marker_45ae1820f61ccba1277555f11d99bfbf.bindPopup(popup_afa1504d3eb0f8d9fbbd007dfdc28056)
+        ;
+
+        
+    
+    
+            marker_45ae1820f61ccba1277555f11d99bfbf.bindTooltip(
+                `<div>
+                     Vaal Community Farm
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4688b0836b6002f1b3ee697d5c67e29e = L.marker(
+                [-23.804, 29.3318],
+                {}
+            ).addTo(marker_cluster_9bba3485542ce9acee9bea3d262d3e82);
+        
+    
+            var icon_6b0803540427f70886fd2d39a83cd6bc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4688b0836b6002f1b3ee697d5c67e29e.setIcon(icon_6b0803540427f70886fd2d39a83cd6bc);
+        
+    
+        var popup_6ac16792d4b1cb0f50f52470dba319dd = L.popup({"maxWidth": 300});
+
+        
+            var html_578595894c9e58252d0ef75e9ddcaf0f = $(`<div id="html_578595894c9e58252d0ef75e9ddcaf0f" style="width: 100.0%; height: 100.0%;">     <b>Ngwaketsi Consulting & Mokura Farm</b><br>     Type: Commercial<br>     Size: 2000 ha<br>     Coordinates: (-23.804, 29.3318)     </div>`)[0];
+            popup_6ac16792d4b1cb0f50f52470dba319dd.setContent(html_578595894c9e58252d0ef75e9ddcaf0f);
+        
+
+        marker_4688b0836b6002f1b3ee697d5c67e29e.bindPopup(popup_6ac16792d4b1cb0f50f52470dba319dd)
+        ;
+
+        
+    
+    
+            marker_4688b0836b6002f1b3ee697d5c67e29e.bindTooltip(
+                `<div>
+                     Ngwaketsi Consulting & Mokura Farm
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dbccab91d5e6f86e2ffdf3ad3c1dd802 = L.marker(
+                [-26.5047, 28.3579],
+                {}
+            ).addTo(marker_cluster_9bba3485542ce9acee9bea3d262d3e82);
+        
+    
+            var icon_ffe4e3441631dbfb95e0734ef8de0344 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_dbccab91d5e6f86e2ffdf3ad3c1dd802.setIcon(icon_ffe4e3441631dbfb95e0734ef8de0344);
+        
+    
+        var popup_8abc0a80dbef562a61c32b3f492dfe82 = L.popup({"maxWidth": 300});
+
+        
+            var html_a4beb54d835df582bde3102108b87c69 = $(`<div id="html_a4beb54d835df582bde3102108b87c69" style="width: 100.0%; height: 100.0%;">     <b>Vhangona Farm</b><br>     Type: Commercial<br>     Size: 70 ha<br>     Coordinates: (-26.5047, 28.3579)     </div>`)[0];
+            popup_8abc0a80dbef562a61c32b3f492dfe82.setContent(html_a4beb54d835df582bde3102108b87c69);
+        
+
+        marker_dbccab91d5e6f86e2ffdf3ad3c1dd802.bindPopup(popup_8abc0a80dbef562a61c32b3f492dfe82)
+        ;
+
+        
+    
+    
+            marker_dbccab91d5e6f86e2ffdf3ad3c1dd802.bindTooltip(
+                `<div>
+                     Vhangona Farm
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_a67ae50f752753211e788967af747c59 = L.circle(
+                [-26.5707, 27.9986],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": 3}
+            ).addTo(map_c7bcb3dfb10a4f1d031f2fe4fe53b92d);
+        
+    
+        var popup_4af035a0b174e9393660e1a0c3989e64 = L.popup({"maxWidth": 300});
+
+        
+            var html_6c992c74444975a7e460b76fcae24a54 = $(`<div id="html_6c992c74444975a7e460b76fcae24a54" style="width: 100.0%; height: 100.0%;">     <b>Vaal Community Farm</b><br>     Type: Community<br>     Size: 40 ha<br>     Coordinates: (-26.5707, 27.9986)     </div>`)[0];
+            popup_4af035a0b174e9393660e1a0c3989e64.setContent(html_6c992c74444975a7e460b76fcae24a54);
+        
+
+        circle_a67ae50f752753211e788967af747c59.bindPopup(popup_4af035a0b174e9393660e1a0c3989e64)
+        ;
+
+        
+    
+    
+            var circle_c7aa11c38819927e5465c895d9efba29 = L.circle(
+                [-23.804, 29.3318],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 3}
+            ).addTo(map_c7bcb3dfb10a4f1d031f2fe4fe53b92d);
+        
+    
+        var popup_3be474544b166b90249ae9ff3cc3cd72 = L.popup({"maxWidth": 300});
+
+        
+            var html_c67083dfc2b2921f4d35d9fefb76f416 = $(`<div id="html_c67083dfc2b2921f4d35d9fefb76f416" style="width: 100.0%; height: 100.0%;">     <b>Ngwaketsi Consulting & Mokura Farm</b><br>     Type: Commercial<br>     Size: 2000 ha<br>     Coordinates: (-23.804, 29.3318)     </div>`)[0];
+            popup_3be474544b166b90249ae9ff3cc3cd72.setContent(html_c67083dfc2b2921f4d35d9fefb76f416);
+        
+
+        circle_c7aa11c38819927e5465c895d9efba29.bindPopup(popup_3be474544b166b90249ae9ff3cc3cd72)
+        ;
+
+        
+    
+    
+            var circle_f0defb7c5ab72286e1d88f972c4a1046 = L.circle(
+                [-26.5047, 28.3579],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 700, "stroke": true, "weight": 3}
+            ).addTo(map_c7bcb3dfb10a4f1d031f2fe4fe53b92d);
+        
+    
+        var popup_d07ede701eb687817758b3d73cd07b3f = L.popup({"maxWidth": 300});
+
+        
+            var html_c911efd0ac883cb41b4f74026d719a67 = $(`<div id="html_c911efd0ac883cb41b4f74026d719a67" style="width: 100.0%; height: 100.0%;">     <b>Vhangona Farm</b><br>     Type: Commercial<br>     Size: 70 ha<br>     Coordinates: (-26.5047, 28.3579)     </div>`)[0];
+            popup_d07ede701eb687817758b3d73cd07b3f.setContent(html_c911efd0ac883cb41b4f74026d719a67);
+        
+
+        circle_f0defb7c5ab72286e1d88f972c4a1046.bindPopup(popup_d07ede701eb687817758b3d73cd07b3f)
+        ;
+
+        
+    
+</script>
+</html>
